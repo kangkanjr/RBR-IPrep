@@ -1,14 +1,3 @@
-/**
- * The 'reverseList' method reverses a given linked list.
- * It uses three pointers: 'prev', 'curr', and 'nextTemp'.
- * 'prev' is initialized as null, 'curr' is initialized at the head of the list, and 'nextTemp' is initialized as null.
- * In a loop, 'nextTemp' stores the next node of 'curr', the 'next' pointer of 'curr' is reversed to point to 'prev',
- * and then 'prev' and 'curr' are moved one step forward.
- * This process continues until 'curr' reaches the end of the list.
- * At this point, 'prev' points to the last node of the original list, which is the head of the reversed list.
- * The method finally returns 'prev', which is the head of the reversed list.
- */
-
 // Definition for singly-linked list node.
 class ListNode {
     int val;            // Value of the node
