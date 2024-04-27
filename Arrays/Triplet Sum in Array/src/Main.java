@@ -1,3 +1,27 @@
+/**
+ * The 'find3Numbers_set' method finds a triplet in the array that adds up to a given sum.
+ * It uses a set data structure to store the elements of the array.
+ * For each element in the array, it calculates the current sum by subtracting the current element from the given sum.
+ * It then iterates over the array starting from the next element.
+ * For each subsequent element, it calculates the result by subtracting the current element from the current sum.
+ * If the result is present in the set, it means we have found a triplet that adds up to the given sum, so it returns true.
+ * If no triplet is found after checking all elements, it returns false.
+ * This method effectively finds a triplet in the array that adds up to a given sum in O(n^2) time complexity and O(n) space complexity.
+ */
+
+/**
+ * The 'find3Numbers_sort' method finds a triplet in the array that adds up to a given sum.
+ * It first sorts the array in ascending order.
+ * Then, for each element in the array, it initializes two pointers at the next element and the last element.
+ * It calculates the current sum by adding the values at the current element and the two pointers.
+ * If the current sum is equal to the given sum, it means we have found a triplet that adds up to the given sum, so it returns true.
+ * If the current sum is less than the given sum, it moves the left pointer to the right to increase the current sum.
+ * If the current sum is greater than the given sum, it moves the right pointer to the left to decrease the current sum.
+ * It continues this process until the two pointers meet.
+ * If no triplet is found after checking all elements, it returns false.
+ * This method effectively finds a triplet in the array that adds up to a given sum in O(n^2) time complexity and O(1) space complexity.
+ */
+
 import java.util.Arrays;
 import java.util.HashSet;
 
