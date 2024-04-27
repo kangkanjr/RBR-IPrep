@@ -4,9 +4,6 @@
  * In a loop, 'slow' moves one step at a time, while 'fast' moves two steps.
  * When 'fast' reaches the end of the list, 'slow' will be at the middle.
  * The method then returns the 'slow' pointer, which points to the middle node.
- * This method effectively finds the middle node of a singly-linked list in a single pass,
- * making it efficient and useful especially when the length of the list is unknown or very long.
- * It's a great example of the two-pointer technique in computer science.
  */
 
 // Definition for singly-linked list node.
