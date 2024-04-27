@@ -1,3 +1,17 @@
+/**
+ * The 'closestToZero' method finds a pair of elements in the array whose sum is closest to zero.
+ * It first sorts the array in ascending order.
+ * It then initializes two pointers at the start and end of the array, and a variable 'min_sum' to keep track of the minimum sum.
+ * In a loop, it calculates the current sum by adding the values at the two pointers.
+ * If the absolute value of the current sum is less than the absolute value of 'min_sum', it updates 'min_sum' with the current sum.
+ * If the absolute values are equal but the current sum is positive, it also updates 'min_sum' with the current sum.
+ * Depending on whether the current sum is less than or greater than zero, it moves the left pointer to the right or the right pointer to the left to get closer to zero.
+ * This process continues until the two pointers meet.
+ * At this point, 'min_sum' is the sum of the pair of elements that is closest to zero.
+ * The method finally returns 'min_sum'.
+ * This method effectively finds the pair of elements whose sum is closest to zero in O(n log n) time complexity due to sorting, and O(1) space complexity.
+ */
+
 import java.util.Arrays;
 
 public class Solution {
