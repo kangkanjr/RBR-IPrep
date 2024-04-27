@@ -1,3 +1,14 @@
+/**
+ * The 'removeNthFromEnd' method removes the nth node from the end of a given linked list.
+ * It uses two pointers, 'first' and 'second', both initialized at a dummy start node.
+ * The start node's next pointer is pointed to the head of the list.
+ * The 'first' pointer is moved n nodes ahead in the list.
+ * Then, both 'first' and 'second' pointers are moved at the same pace until 'first' reaches the end.
+ * At this point, 'second' points to the node before the node to be removed.
+ * The 'next' pointer of the 'second' node is then skipped to the node after the node to be removed, effectively removing it.
+ * The method finally returns the next node of the start node, which is the head of the modified list.
+ */
+
 // Definition for singly-linked list node.
 class ListNode {
     int val;            // Value of the node
