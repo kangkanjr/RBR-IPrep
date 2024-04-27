@@ -1,3 +1,16 @@
+/**
+ * The 'maximumDifference' method finds the maximum difference (max_diff) in the array such that the larger element appears after the smaller number.
+ * If the array has less than 2 elements, it returns -1 as we can't find a difference.
+ * It initializes the maximum difference (max_dif) and the minimum element (min_element) with the first two elements of the array.
+ * It then iterates over the array starting from the first index.
+ * For each element, if it is less than the minimum element found so far, it updates the minimum element.
+ * Otherwise, it calculates the current difference (cur_dif) as the difference between the current element and the minimum element.
+ * If the current difference is greater than the maximum difference found so far, it updates the maximum difference.
+ * If the maximum difference is 0, it means all elements are the same, so it returns -1.
+ * Otherwise, it returns the maximum difference.
+ * This method effectively finds the maximum difference in the array in a single pass, making it efficient and useful.
+ * It's a great example of how to use a simple loop and a few variables to solve a complex problem.
+ */
 
 class Solution {
     public int maximumDifference(int[] nums) {
