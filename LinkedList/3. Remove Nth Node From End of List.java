@@ -28,7 +28,7 @@ class Solution {
         ListNode second = startNode;           // Initialize second pointer as startNode
 
         // Move the first pointer n nodes ahead in the linked list
-        for (int i = 0;i < n+1;i++) {
+        for (int i=0;i<n+1;i++) {
             first = first.next;
         }
 
