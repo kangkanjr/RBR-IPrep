@@ -2,6 +2,7 @@
 class ListNode {
     int val;            // Value of the node
     ListNode next;      // Pointer to the next node
+
     ListNode(int x) {   // Constructor to initialize the node
         val = x;
     }
@@ -10,7 +11,7 @@ class ListNode {
 class Solution {
     /**
      * https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
-     * 
+     * <p>
      * The 'removeNthFromEnd' method removes the nth node from the end of a given linked list.
      * It uses two pointers, 'first' and 'second', both initialized at a dummy start node.
      * The start node's next pointer is pointed to the head of the list.
@@ -27,7 +28,7 @@ class Solution {
         ListNode second = startNode;           // Initialize second pointer as startNode
 
         // Move the first pointer n nodes ahead in the linked list
-        for (int i = 0; i < n + 1; i++) {
+        for (int i = 0;i < n+1;i++) {
             first = first.next;
         }
 
