@@ -1,23 +1,23 @@
-    /**
-     * https://www.geeksforgeeks.org/problems/polynomial-addition/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article
-     * 
-     * https://www.youtube.com/watch?v=cFHZ-a87Vp4&ab_channel=NesoAcademy
-     * 
-     * This function, addPolynomials, is designed to add two polynomials which are represented as linked lists.
-     * Each node in the linked list represents a term in the polynomial. The 'coefficient' field of the node stores the coefficient of the term,
-     * and the 'pow' field stores the power of the term. The 'next' field points to the next term in the polynomial.
-     *
-     * The function takes two parameters, p1 and p2, which are the head nodes of the linked lists representing the two polynomials to be added.
-     *
-     * The function works by iterating through the nodes of the two polynomials simultaneously. For each pair of nodes, it compares the powers of the terms.
-     * If the powers are equal, it creates a new node with the same power and the sum of the coefficients, and appends this node to the result list.
-     * If the power of the term in the first polynomial is greater, it appends this node to the result list and moves to the next node in the first polynomial.
-     * If the power of the term in the second polynomial is greater, it appends this node to the result list and moves to the next node in the second polynomial.
-     *
-     * If all nodes of one polynomial have been processed but there are remaining nodes in the other polynomial, these remaining nodes are appended to the result list.
-     *
-     * The function returns the head node of the resulting polynomial after addition. The result is also a linked list, where each node represents a term in the result polynomial.
-    */
+/**
+ * https://www.geeksforgeeks.org/problems/polynomial-addition/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article
+ * 
+ * https://www.youtube.com/watch?v=cFHZ-a87Vp4&ab_channel=NesoAcademy
+ * 
+ * This function, addPolynomials, is designed to add two polynomials which are represented as linked lists.
+ * Each node in the linked list represents a term in the polynomial. The 'coefficient' field of the node stores the coefficient of the term,
+ * and the 'pow' field stores the power of the term. The 'next' field points to the next term in the polynomial.
+ *
+ * The function takes two parameters, p1 and p2, which are the head nodes of the linked lists representing the two polynomials to be added.
+ *
+ * The function works by iterating through the nodes of the two polynomials simultaneously. For each pair of nodes, it compares the powers of the terms.
+ * If the powers are equal, it creates a new node with the same power and the sum of the coefficients, and appends this node to the result list.
+ * If the power of the term in the first polynomial is greater, it appends this node to the result list and moves to the next node in the first polynomial.
+ * If the power of the term in the second polynomial is greater, it appends this node to the result list and moves to the next node in the second polynomial.
+ *
+ * If all nodes of one polynomial have been processed but there are remaining nodes in the other polynomial, these remaining nodes are appended to the result list.
+ *
+ * The function returns the head node of the resulting polynomial after addition. The result is also a linked list, where each node represents a term in the result polynomial.
+*/
 
  
 /*class Node{
