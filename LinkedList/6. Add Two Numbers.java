@@ -32,36 +32,32 @@
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
       
-      ListNode dummyHead = new ListNode(0); // Create a dummy head for the result list
-      ListNode first = l1, second = l2, curr = dummyHead; // Initialize pointers for l1, l2 and the result list
-      int carry = 0; // Initialize carry
-  
-      // Loop through lists l1 and l2 until you reach both ends.
-      while (first != null || second != null) {
-        // Get the current value, if the node exists, else 0
-        int x = (first != null) ? first.val : 0;
-        int y = (second != null) ? second.val : 0;
-        int sum = carry + x + y; // Calculate the sum
-        carry = sum / 10; // Update carry
-  
-        // Create a new node with the digit value of sum and set it to the current
-        // node's next
-        curr.next = new ListNode(sum % 10);
-        curr = curr.next; // Move the current node to next
-  
-        // Move to next nodes of l1 and l2
-        if (first != null)
-          first = first.next;
-        if (second != null)
-          second = second.next;
-      }
-  
-      // If there is still a carry after going through both lists, add a new node with
-      // carry value
-      if (carry > 0) {
-        curr.next = new ListNode(carry);
-      }
-  
-      return dummyHead.next; // Return the result list, dummyHead's next node is the start of the list
+        ListNode dummyHead = new ListNode(0); // Create a dummy head for the result list
+        ListNode first = l1, second = l2, curr = dummyHead; // Initialize pointers for l1, l2 and the result list
+        int carry = 0; // Initialize carry
+        
+        // Loop through lists l1 and l2 until you reach both ends.
+        while (first != null || second != null) {
+            // Get the current value, if the node exists, else 0
+            int x = (first != null) ? first.val : 0;
+            int y = (second != null) ? second.val : 0;
+            int sum = carry + x + y; // Calculate the sum
+            carry = sum / 10; // Update carry
+        
+            // Create a new node with the digit value of sum and set it to the current node's next
+            curr.next = new ListNode(sum % 10);
+            curr = curr.next; // Move the current node to next
+        
+            // Move to next nodes of l1 and l2
+            if (first != null) first = first.next;
+            if (second != null) second = second.next;
+        }
+        
+        // If there is still a carry after going through both lists, add a new node with carry value
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
+        }
+        
+        return dummyHead.next; // Return the result list, dummyHead's next node is the start of the listl̥
     }
   }
