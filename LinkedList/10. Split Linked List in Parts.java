@@ -36,9 +36,11 @@
 
  class Solution {
     public ListNode[] splitListToParts(ListNode head, int k) {
+        // Initialize an array of ListNodes to store the result
         ListNode[] result = new ListNode[k];
         int len = 0;
         ListNode node = head;
+
         // Calculate the length of the linked list
         while (node != null) {
             len++;
@@ -46,14 +48,18 @@
         }
         
         // Calculate the minimum size of each part and the number of larger parts
+        // minSize is the minimum number of nodes each part should have
+        // numLarger is the number of parts that will have one node more than the minimum size
         int minSize = len / k;
         int numLarger = len % k;
         
         node = head;
         for (int i = 0; i < k && node != null; i++) {
+            // Assign the start of the current part to the result array
             result[i] = node;
             
             // Determine the size of the current part
+            // If the current part index is less than numLarger, it should have one node more than the minimum size
             int partSize = i < numLarger ? minSize + 1 : minSize;
             
             // Move the node pointer to the end of the current part
@@ -62,11 +68,13 @@
             }
             
             // Disconnect the current part from the rest of the list
+            // Store the start of the next part in a temporary variable
             ListNode next = node.next;
-            node.next = null;
-            node = next;
+            node.next = null;  // Disconnect the current part
+            node = next;  // Move to the start of the next part
         }
         
+        // Return the result array containing all parts
         return result;
     }
 }
