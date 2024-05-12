@@ -4,21 +4,21 @@
  * https://www.youtube.com/watch?v=-OTlqdrxrVI&ab_channel=NeetCodeIO
  * 
  * This method splits a linked list into 'k' consecutive linked list parts.
-     * The length of each part will be as equal as possible: no two parts should have a size differing by more than one. 
-     * Parts if size less than one will be in the form of null.
-     *
-     * The method works by first calculating the total length of the linked list.
-     * It then calculates the minimum size of each part (minSize) and the number of parts that need to be one node larger (numLarger).
-     * This is done to distribute the nodes as evenly as possible across the 'k' parts.
-     *
-     * The method then iterates over the linked list, creating each part.
-     * For each part, it sets the start of the part to the current node, then moves the node pointer to the end of the part.
-     * The size of the part is determined by whether the part index is less than numLarger (in which case it is minSize + 1) or not (in which case it is minSize).
-     * After determining the end of the part, it disconnects the part from the rest of the list by setting the next of the last node in the part to null.
-     *
-     * @param head The head node of the linked list.
-     * @param k The number of parts to split the linked list into.
-     * @return An array of linked list nodes representing the 'k' parts.
+ * The length of each part will be as equal as possible: no two parts should have a size differing by more than one. 
+ * Parts if size less than one will be in the form of null.
+ *
+ * The method works by first calculating the total length of the linked list.
+ * It then calculates the minimum size of each part (minSize) and the number of parts that need to be one node larger (numLarger).
+ * This is done to distribute the nodes as evenly as possible across the 'k' parts.
+ *
+ * The method then iterates overl̥ the linked list, creating each part.
+ * For each part, it sets the start of the part to the current node, then moves the node pointer to the end of the part.
+ * The size of the part is determined by whether the part index is less than numLarger (in which case it is minSize + 1) or not (in which case it is minSize).
+ * After determining the end of the part, it disconnects the part from the rest of the list by setting the next of the last node in the part to null.
+ *
+ * @param head The head node of the linked list.
+ * @param k The number of parts to split the linked list into.
+ * @return An array of linked list nodes representing the 'k' parts.
  */
 
  
