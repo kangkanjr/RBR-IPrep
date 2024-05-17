@@ -1,49 +1,63 @@
 /**
- * Given an array of integers, write a function in Java that groups all the occurrences of elements in the array, ordered by their first occurrence. The function should print the elements of the array in the order of their grouping.
+ * https://www.geeksforgeeks.org/problems/count-distinct-elements-in-every-window/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article
+ * 
+ * https://www.youtube.com/watch?v=j48e8ac7r20&ab_channel=AnujBhaiya
  * 
  * 
- * This method groups all the occurrences of elements in the given array, ordered by their first occurrence.
- * It uses a LinkedHashMap to maintain the order of elements as it was in the input array.
+* This method counts the distinct elements in every window of size k in the given array.
+ * It uses a HashMap to store the elements and their counts, and an ArrayList to store the counts of distinct numbers in each window.
  *
  * @param arr The input array of integers.
+ * @param n The size of the array.
+ * @param k The size of the window.
+ * @return An ArrayList of integers representing the counts of distinct numbers in each window.
  *
  * The method works as follows:
- * 1. A LinkedHashMap is created to store the elements of the array and their counts. 
- *    The LinkedHashMap maintains the insertion order, which ensures that the elements are grouped by their first occurrence.
- * 2. The array is traversed and each element is added to the map. If the element is already present in the map, its count is incremented.
- * 3. Finally, the map is traversed and each element is printed as many times as its count, resulting in the elements being grouped by their first occurrence.
+ * 1. A HashMap is created to store the elements of the array and their counts.
+ * 2. An ArrayList is created to store the counts of distinct numbers in each window.
+ * 3. The first window of size k is traversed and each element is added to the map.
+ * 4. The count of distinct numbers in the first window is added to the ArrayList.
+ * 5. The remaining array is traversed. For each window, the first element of the previous window is removed from the map and the new element is added to the map.
+ * 6. The count of distinct numbers in each window is added to the ArrayList.
+ * 7. Finally, the ArrayList is returned.
+ *
+ * This method efficiently counts the distinct elements in every window of size k by maintaining a sliding window and using the count of the previous window while sliding.
+ * It uses a HashMap to keep track of the elements in the current window and their counts, and an ArrayList to store the results.
  */
 
- public class Main {
-    // Function to group all the occurrences of elements
-    public static void groupElements(int arr[]) {
-        // Create a LinkedHashMap to maintain the order of elements
-        Map<Integer, Integer> map = new LinkedHashMap<>();
+ class Solution{
+    ArrayList<Integer> countDistinct(int arr[], int n, int k){
+         // Create a HashMap to store the elements and their counts
+        Map<Integer, Integer> map = new HashMap<>();
 
-        // Traverse through the array
-        for (int i = 0; i < arr.length; i++) {
-            // If the element is present in the map, increment its count
-            if (map.containsKey(arr[i])) {
-                map.put(arr[i], map.get(arr[i]) + 1);
-            }
-            // If the element is not present in the map, add it to the map with count 1
-            else {
-                map.put(arr[i], 1);
-            }
+        // Create an ArrayList to store the counts of distinct numbers in each window
+        ArrayList<Integer> result = new ArrayList<>();
+
+        // Traverse the first window and add elements to the map
+        for (int i = 0; i < k; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
 
-        // Traverse through the map
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            // Print the element as many times as its count
-            for (int i = 0; i < entry.getValue(); i++) {
-                System.out.print(entry.getKey() + " ");
-            }
-        }
-    }
+        // Add the count of distinct numbers in the first window to the result
+        result.add(map.size());
 
-    // Driver code
-    public static void main(String[] args) {
-        int arr[] = {4, 2, 2, 8, 3, 3, 1};
-        groupElements(arr);
+        // Traverse the remaining array
+        for (int i = k; i < n; i++) {
+            // Remove the first element of the previous window
+            if (map.get(arr[i - k]) == 1) {
+                map.remove(arr[i - k]);
+            } else {
+                map.put(arr[i - k], map.get(arr[i - k]) - 1);
+            }
+
+            // Add the element of the current window
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+
+            // Add the count of distinct numbers in the current window to the result
+            result.add(map.size());
+        }
+
+        // Return the result
+        return result;
     }
 }
