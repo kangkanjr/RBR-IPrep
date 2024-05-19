@@ -24,7 +24,8 @@ Algorithm:
 4. Calculate Final Reversals:
    - After processing all characters, the stack contains any remaining unmatched opening brackets.
    - Each remaining opening bracket needs to be reversed to a closing bracket, so add the stack size to the `reversals` count.
-   - Additionally, for every two remaining open brackets, one additional reversal is needed to form a balanced pair. Therefore, add half the stack size (integer division to round down) to the `reversals` count.
+   - Additionally, for every two remaining open brackets, one additional reversal is needed to form a balanced pair. 
+    Therefore, add half the stack size (integer division to round down) to the `reversals` count.
 5. Return Result:
    - The final value of `reversals` is the minimum number of reversals needed to balance the string `s`.
 
