@@ -4,7 +4,8 @@
  * 
   Stack Reversal using Recursion and "Insert at Bottom" Technique
 
-  This Java class (`Solution`) provides a solution for reversing the elements within a stack using a recursive approach. The core idea involves two key functions:
+  This Java class (`Solution`) provides a solution for reversing the elements within a stack using a recursive approach. 
+  The core idea involves two key functions:
 
   1. `insertAtBottom(Stack<Integer> stack, int x)`:
     - Purpose: Inserts the element `x` at the very bottom of the stack.
@@ -26,12 +27,19 @@
 
   How It Works:
 
-  The `reverse` function systematically dismantles the stack by popping elements. Each popped element is held in temporary storage while the rest of the stack is recursively reversed. Once the base case (empty stack) is reached, `insertAtBottom` starts placing the elements back in the stack, but in reverse order. This reversal happens at each level of the recursion, ultimately resulting in a fully reversed stack.
+  The `reverse` function systematically dismantles the stack by popping elements. 
+  Each popped element is held in temporary storage while the rest of the stack is recursively reversed. 
+  Once the base case (empty stack) is reached, `insertAtBottom` starts placing the elements back in the stack, 
+  but in reverse order. This reversal happens at each level of the recursion, 
+  ultimately resulting in a fully reversed stack.
 
   Time and Space Complexity:
 
-  - Time Complexity: O(n^2) due to nested recursion in `insertAtBottom`. Each element is popped and then inserted at the bottom, leading to quadratic time.
-  - Space Complexity: O(n) due to the recursion depth. In the worst case, the recursion can go as deep as the number of elements in the stack, consuming space on the call stack.
+  - Time Complexity: O(n^2) due to nested recursion in `insertAtBottom`. 
+  Each element is popped and then inserted at the bottom, leading to quadratic time.
+  - Space Complexity: O(n) due to the recursion depth. 
+  In the worst case, the recursion can go as deep as the number of elements in the stack, 
+  consuming space on the call stack.
 
  */
 
