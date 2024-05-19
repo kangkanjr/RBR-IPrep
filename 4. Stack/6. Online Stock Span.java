@@ -1,4 +1,9 @@
 /*
+https://leetcode.com/problems/online-stock-span/description/
+
+https://www.youtube.com/watch?v=slYh0ZNEqSw&ab_channel=NeetCode
+
+
 Online Stock Span - Tracking Consecutive Lower/Equal Stock Prices
 
 Problem Description:
