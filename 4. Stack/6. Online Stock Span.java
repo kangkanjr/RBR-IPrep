@@ -31,7 +31,8 @@ Algorithm - Monotonic Decreasing Stack:
 Time and Space Complexity:
 
 - Time Complexity: Amortized O(1) per `next()` call.  Each price is pushed and popped at most once.
-- Space Complexity: O(N), where N is the maximum number of calls to `next()`.  In the worst case, all prices are in increasing order, and the stacks store all prices and spans.
+- Space Complexity: O(N), where N is the maximum number of calls to `next()`.  In the worst case, all prices are in increasing order, 
+and the stacks store all prices and spans.
 
 Example:
 
