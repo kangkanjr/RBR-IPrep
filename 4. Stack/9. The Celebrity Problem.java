@@ -6,7 +6,9 @@ https://www.youtube.com/watch?v=bIvK_2OEzk0&ab_channel=PhysicsMania-MohitGupta%5
 The Celebrity Problem - Finding the Popular Person
 
 Problem Description:
-In a party of N people, only one person is known to everyone. This person is the "celebrity." The celebrity doesn't know anyone at the party. We can only ask questions like "Does person A know person B?". Find the celebrity (if there is one) in the minimum number of questions.
+In a party of N people, only one person is known to everyone. This person is the "celebrity." The celebrity doesn't know anyone at the party. 
+We can only ask questions like "Does person A know person B?". 
+Find the celebrity (if there is one) in the minimum number of questions.
 
 Algorithm Overview (Stack-Based):
 
