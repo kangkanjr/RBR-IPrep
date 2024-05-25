@@ -1,5 +1,5 @@
 /*
-https://leetcode.com/problems/same-tree/submissions/1267353938/
+https://leetcode.com/problems/same-tree/description/
 
 100. Same Tree - Determining Structural and Value Equality of Binary Trees
 
