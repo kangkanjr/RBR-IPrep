@@ -4,7 +4,10 @@ https://www.geeksforgeeks.org/problems/print-a-binary-tree-in-vertical-order/1?i
 Vertical Order Traversal of Binary Tree - HashMap Approach
 
 Problem Description:
-Given a binary tree, return a list of its nodes in vertical order. Nodes within the same vertical line should be ordered from top to bottom. Vertical order is determined by the horizontal distance of each node from the root. The root has a horizontal distance of 0, nodes to the left have negative distances, and nodes to the right have positive distances.
+Given a binary tree, return a list of its nodes in vertical order. Nodes within the same vertical line should be ordered from top to bottom. 
+Vertical order is determined by the horizontal distance of each node from the root. 
+The root has a horizontal distance of 0, nodes to the left have negative distances, 
+and nodes to the right have positive distances.
 
 Algorithm Overview:
 
