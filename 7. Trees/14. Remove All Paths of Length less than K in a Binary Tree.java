@@ -2,7 +2,8 @@
 Remove All Paths of Length < K in a Binary Tree
 
 Problem Description:
-Given a binary tree and a positive integer 'k', the task is to remove all nodes from the tree that lie on a root-to-leaf path of length less than k.  This means we need to keep only the nodes that are part of paths with length k or greater.
+Given a binary tree and a positive integer 'k', the task is to remove all nodes from the tree that lie on a root-to-leaf path of length less than k.  
+This means we need to keep only the nodes that are part of paths with length k or greater.
 
 Algorithm Overview (Post-Order Traversal with Node Removal):
 
