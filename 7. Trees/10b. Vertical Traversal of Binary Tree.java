@@ -52,42 +52,42 @@ class BinaryTree {
     // Function to find the vertical order traversal of the Binary Tree
     static ArrayList<Integer> verticalOrder(Node root) {
         ArrayList<Integer> res = new ArrayList<>();
-        if (root == null) return res; // Empty tree
+        if (root == null) return res; // Base case: If the tree is empty, return an empty list
 
-        // Queue for level order traversal
+        // Queue for Level Order Traversal: Stores nodes and their HDs
         Queue<MyPair> queue = new LinkedList<>();
 
-        // Map to store nodes by horizontal distance (sorted by HD)
+        // TreeMap to Store Nodes by Horizontal Distance: Keys are HDs, values are lists of nodes at that HD
+        // TreeMap automatically sorts by keys, ensuring vertical order
         Map<Integer, ArrayList<Integer>> mp = new TreeMap<>();
 
-        queue.add(new MyPair(root, 0)); // Start with the root node at HD 0
+        queue.offer(new MyPair(root, 0)); // Enqueue the root with HD 0
         while (!queue.isEmpty()) {
-            MyPair curr = queue.poll();
-            Node temp_root = curr.node;
+            MyPair curr = queue.poll(); // Dequeue the next node and its HD
+            Node tempNode = curr.node;
             int hd = curr.hd;
 
-            // Add the node's data to the corresponding list in the map
-            if (!map.containsKey(hd)) {
-                map.put(hd, new ArrayList<>());
-            }
-            map.get(hd).add(temp_root.data);
+            // Add the node's data to the list for its horizontal distance
+            // If the list doesn't exist, create a new one
+            mp.putIfAbsent(hd, new ArrayList<>()); 
+            mp.get(hd).add(tempNode.data); // Add the node's value to the list
 
-            // Add left child with updated HD if it exists
-            if (temp_root.left != null) {
-                queue.offer(new MyPair(temp_root.left, hd - 1));
+            // Enqueue the left child (if it exists) with its HD (hd - 1)
+            if (tempNode.left != null) { 
+                queue.offer(new MyPair(tempNode.left, hd - 1));
             }
 
-            // Add right child with updated HD if it exists
-            if (temp_root.right != null) {
-                queue.offer(new MyPair(temp_root.right, hd + 1));
+            // Enqueue the right child (if it exists) with its HD (hd + 1)
+            if (tempNode.right != null) {
+                queue.offer(new MyPair(tempNode.right, hd + 1));
             }
         }
 
-        // Extract nodes from the map in sorted order (by HD)
+        // Iterate over the sorted map (by HD) to collect nodes in vertical order
         for (Map.Entry<Integer, ArrayList<Integer>> entry : mp.entrySet()) {
-            res.addAll(entry.getValue());
+            res.addAll(entry.getValue()); // Add all nodes at the current HD to the result
         }
 
-        return res; // Return the vertically ordered nodes
+        return res; // Return the vertically ordered nodes as a list
     }
 }
