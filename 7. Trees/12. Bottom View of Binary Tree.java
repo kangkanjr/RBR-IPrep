@@ -5,14 +5,16 @@ Bottom View of Binary Tree
 O(n) approach also there
 
 Problem Description:
-Given a binary tree, find the bottom view of the tree. The bottom view consists of the bottommost nodes in each vertical line, as seen from the bottom of the tree.
+Given a binary tree, find the bottom view of the tree. The bottom view consists of the bottommost nodes in each vertical line, 
+as seen from the bottom of the tree.
 
 Algorithm Overview (Level Order Traversal with Horizontal Distance):
 
 1. Horizontal Distance (HD) Mapping:
    - Each node in the tree is associated with a horizontal distance (HD) from the root. The root has HD 0.
    - Nodes to the left of the root have negative HDs, and nodes to the right have positive HDs.
-   - Use a map (`TreeMap`) to store the bottom-most node for each HD. The TreeMap ensures that keys (HDs) are sorted, making it easy to retrieve nodes in the correct order for the bottom view.
+   - Use a map (`TreeMap`) to store the bottom-most node for each HD. The TreeMap ensures that keys (HDs) are sorted, 
+      making it easy to retrieve nodes in the correct order for the bottom view.
 
 2. Level Order Traversal:
    - Use a queue to perform a level order traversal of the tree.
