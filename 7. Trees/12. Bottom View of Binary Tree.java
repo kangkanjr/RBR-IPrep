@@ -54,41 +54,43 @@ class Pair { // Helper class to store a node and its horizontal distance
 }
 
 class Tree {
-    public static ArrayList<Integer> bottomView(Node root) {
-        ArrayList<Integer> res = new ArrayList<>();
-        if (root == null) {
-            return res;
-        }
+  public static ArrayList<Integer> bottomView(Node root) {
+      ArrayList<Integer> res = new ArrayList<>();
+      if (root == null) {
+          return res; // Handle the case where the tree is empty
+      }
 
-        // Map to store bottommost node for each horizontal distance
-        TreeMap<Integer, Integer> map = new TreeMap<>();
+      TreeMap<Integer, Integer> map = new TreeMap<>(); // Map to store (hd, node.data)
 
-        // Queue for level order traversal
-        Queue<Pair> q = new LinkedList<>();
-        q.add(new Pair(root, 0)); // Start with root at HD 0
+      // Queue to store nodes along with their horizontal distances
+      Queue<Pair> q = new LinkedList<>(); 
+      q.add(new Pair(root, 0)); // Start by adding the root node with HD 0
 
-        while (!q.isEmpty()) {
-            // Remove the front node from the queue
-            Pair curr = q.poll();
-            Node temp = curr.node;
-            int hd = curr.hd;
+      while (!q.isEmpty()) { // Iterate through the tree level by level
+          Pair curr = q.poll(); // Dequeue a node and its HD from the queue
+          Node node = curr.node;
+          int hd = curr.hd;
 
-            // Update the map with the current node's data for its HD
-            map.put(hd, temp.data);
+          // Since we are doing level order traversal, the last node processed for a particular 
+          // horizontal distance will be the bottommost node. So, we always update the map.
+          map.put(hd, node.data); 
 
-            // Enqueue left and right children with updated HDs
-            if (temp.left != null) {
-                q.add(new Pair(temp.left, hd - 1));
-            }
-            if (temp.right != null) {
-                q.add(new Pair(temp.right, hd + 1));
-            }
-        }
+          // Add the left child to the queue with its HD (hd - 1)
+          if (node.left != null) {
+              q.add(new Pair(node.left, hd - 1)); 
+          }
 
-        // Collect the values from the map (bottommost nodes)
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            res.add(entry.getValue());
-        }
-        return res;
-    }
+          // Add the right child to the queue with its HD (hd + 1)
+          if (node.right != null) {
+              q.add(new Pair(node.right, hd + 1)); 
+          }
+      }
+
+      // Iterate over the sorted map (by HD) and collect the values (node data)
+      for (Map.Entry<Integer, Integer> entry : map.entrySet()) { 
+          res.add(entry.getValue());
+      }
+
+      return res; // Return the list of nodes in the bottom view order
+  }
 }
