@@ -57,64 +57,75 @@ class BinaryTree {
         findMinMax(node.right, min, max, hd + 1);
     }
 
-    // Function to print binary tree in vertical order using a doubly linked list
-    public static void verticalOrder(Node root) {
-        if (root == null) return;
+   // Function to print binary tree in vertical order using a doubly linked list
+   public static void verticalOrder(Node root) {
+    if (root == null) return; // Handle empty tree
 
-        Values min = new Values(), max = new Values();
-        findMinMax(root, min, max, 0); // Find horizontal distance range
+    // Find the minimum and maximum horizontal distances in the tree
+    Values min = new Values(); 
+    Values max = new Values();
+    findMinMax(root, min, max, 0);
 
-        VerticalLineNode head = null, tail = null; // Doubly linked list for vertical lines
-        Queue<MyPair> queue = new LinkedList<>();
-        queue.offer(new MyPair(root, 0));
+    // Initialize the doubly linked list to store vertical lines
+    VerticalLineNode head = null, tail = null; 
 
-        while (!queue.isEmpty()) {
-            MyPair curr = queue.poll();
-            Node node = curr.node;
-            int hd = curr.hd;
+    // Queue to store nodes along with their horizontal distances
+    Queue<MyPair> queue = new LinkedList<>();
 
-            // Insert the node into the doubly linked list
-            if (head == null) {
-                head = tail = new VerticalLineNode(hd, node);
-            } else {
-                VerticalLineNode newNode = new VerticalLineNode(hd, node);
-                if (hd < head.hd) { // Insert at the beginning
-                    newNode.next = head;
-                    head.prev = newNode;
-                    head = newNode;
-                } else if (hd > tail.hd) { // Insert at the end
-                    newNode.prev = tail;
-                    tail.next = newNode;
-                    tail = newNode;
-                } else { // Insert in between
-                    VerticalLineNode temp = head;
-                    while (temp.hd < hd) {
-                        temp = temp.next;
-                    }
-                    newNode.next = temp;
-                    newNode.prev = temp.prev;
-                    temp.prev.next = newNode;
-                    temp.prev = newNode;
+    // Enqueue the root node with horizontal distance 0
+    queue.offer(new MyPair(root, 0));  
+
+    // Process nodes level by level
+    while (!queue.isEmpty()) {
+        // Dequeue a node and its horizontal distance
+        MyPair current = queue.poll();
+        Node node = current.node;
+        int hd = current.hd;
+
+        // Create a new VerticalLineNode to store the current node
+        VerticalLineNode newNode = new VerticalLineNode(hd, node);
+
+        // Insert the new VerticalLineNode in the correct position in the doubly linked list
+        if (head == null) {
+            head = tail = newNode; // If the list is empty, set head and tail
+        } else {
+            if (hd < head.hd) {   // Insert at the beginning
+                newNode.next = head;
+                head.prev = newNode;
+                head = newNode;
+            } else if (hd > tail.hd) { // Insert at the end
+                newNode.prev = tail;
+                tail.next = newNode;
+                tail = newNode;
+            } else {               // Insert in the middle
+                VerticalLineNode temp = head;
+                while (temp.hd < hd) {
+                    temp = temp.next;
                 }
-            }
-
-            // Enqueue children and update their HDs
-            if (node.left != null) {
-                queue.offer(new MyPair(node.left, hd - 1));
-            }
-            if (node.right != null) {
-                queue.offer(new MyPair(node.right, hd + 1));
+                newNode.next = temp;
+                newNode.prev = temp.prev;
+                temp.prev.next = newNode;
+                temp.prev = newNode;
             }
         }
 
-        // Print the nodes in vertical order
-        VerticalLineNode temp = head;
-        while (temp != null) {
-            for (Node node : temp.nodes) {
-                System.out.print(node.data + " ");
-            }
-            System.out.println(); // Move to the next line after printing a vertical line
-            temp = temp.next;
+        // Add the children of the current node to the queue with their horizontal distances
+        if (node.left != null) {
+            queue.offer(new Pair(node.left, hd - 1));
+        }
+        if (node.right != null) {
+            queue.offer(new Pair(node.right, hd + 1));
         }
     }
+
+    // Iterate over the doubly linked list and print nodes for each vertical line
+    VerticalLineNode currentLine = head;
+    while (currentLine != null) {
+        for (Node node : currentLine.nodes) {
+            System.out.print(node.data + " "); // Print nodes in the current vertical line
+        }
+        System.out.println(); // Move to the next line for the next vertical line
+        currentLine = currentLine.next;
+    }
+}
 }
