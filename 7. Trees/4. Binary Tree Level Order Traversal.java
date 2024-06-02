@@ -52,34 +52,40 @@ Time and Space Complexity:
 */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>(); // Initialize the result list to store values at each level
         if (root == null) {
-            return result; // Handle empty tree
+            return result; // If the tree is empty, return the empty list
         }
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        Queue<TreeNode> queue = new LinkedList<>(); // Queue to store nodes for level-order traversal
+        queue.offer(root); // Add the root node to the queue to start the traversal
 
-        while (!queue.isEmpty()) {
-            int levelSize = queue.size(); // Number of nodes at the current level
-            List<Integer> levelList = new ArrayList<>(); // List to store values for the current level
+        while (!queue.isEmpty()) {  // Continue until all levels are processed
+            int levelSize = queue.size();  // Number of nodes at the current level
+            List<Integer> levelList = new ArrayList<>();  // List to store node values for the current level
 
-            for (int i = 0; i < levelSize; i++) {
-                TreeNode node = queue.poll(); // Dequeue the node
-                levelList.add(node.val);      // Add its value to the levelList
+            // Process all nodes in the current level
+            for (int i = 0; i < levelSize; i++) { 
+                TreeNode currentNode = queue.poll(); // Dequeue the node from the front of the queue
 
-                // Enqueue its children (if they exist)
-                if (node.left != null) {
-                    queue.offer(node.left);
+                // Store the node's value in the list for the current level
+                levelList.add(currentNode.val); 
+
+                // If the node has a left child, enqueue it for processing in the next level
+                if (currentNode.left != null) {
+                    queue.offer(currentNode.left);
                 }
-                if (node.right != null) {
-                    queue.offer(node.right);
+
+                // If the node has a right child, enqueue it for processing in the next level
+                if (currentNode.right != null) { 
+                    queue.offer(currentNode.right); 
                 }
             }
 
-            result.add(levelList); // Add the current level's list to the final result
+            // Add the completed list for the current level to the result list
+            result.add(levelList); 
         }
 
-        return result;
+        return result; // Return the nested list containing node values at each level
     }
 }
