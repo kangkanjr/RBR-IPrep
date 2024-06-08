@@ -23,7 +23,8 @@ Algorithm Overview:
 
 Time and Space Complexity:
 
-- Time Complexity: O(N^2), where N is the length of the string `s`. The string concatenation and substring search operations can take up to quadratic time in the worst case.
+- Time Complexity: O(N^2), where N is the length of the string `s`. The string concatenation and 
+  substring search operations can take up to quadratic time in the worst case.
 - Space Complexity: O(N), due to the creation of the concatenated string `s2`.
 
 Key Insight:
