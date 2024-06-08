@@ -31,7 +31,7 @@ public class MinHeapToMaxHeap {
     public static void convertMinToMaxHeap(int N, int[] arr) {
         // Start from the last non-leaf node and heapify in reverse level order
         for (int i = (N - 1) / 2; i >= 0; i--) {
-maxHeapify(arr, i, N);
+            maxHeapify(arr, i, N);
         }
     }
 
