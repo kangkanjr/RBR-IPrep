@@ -13,7 +13,8 @@ Algorithm Overview:
    - Create a HashMap `freq` to store the frequency of each character in the string `s`.
 
 2. Max Heap:
-   - Create a max-heap (PriorityQueue) `maxHeap` to store characters based on their frequency. The character with the highest frequency will be at the top of the heap.
+   - Create a max-heap (PriorityQueue) `maxHeap` to store characters based on their frequency. 
+      The character with the highest frequency will be at the top of the heap.
 
 3. Build Result String:
    - Initialize an empty string `result` to build the rearranged string.
@@ -26,7 +27,8 @@ Algorithm Overview:
      - If the `waitingQueue` is not empty and the distance constraint is satisfied for the front element, dequeue it and add it back to the max-heap.
 
 Time Complexity: O(N log A), where N is the length of the string and A is the size of the alphabet (26 for lowercase English letters). 
-We insert each character into the max-heap once, and each insertion takes O(log A) time. Additionally, we iterate through the string and the waiting queue, which takes O(N) time.
+We insert each character into the max-heap once, and each insertion takes O(log A) time. 
+Additionally, we iterate through the string and the waiting queue, which takes O(N) time.
 
 Space Complexity: O(A), for storing the frequency map and the waiting queue.
 */
