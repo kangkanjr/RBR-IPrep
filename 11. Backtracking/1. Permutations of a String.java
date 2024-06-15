@@ -4,7 +4,8 @@ https://www.geeksforgeeks.org/problems/permutations-of-a-given-string2041/1
 Permutations of a String with Duplicates - Backtracking and HashSet Approach
 
 Problem Description:
-Given a string `S`, this code finds all unique permutations of the string, even if it contains duplicate characters. The permutations are returned in lexicographically sorted order.
+Given a string `S`, this code finds all unique permutations of the string, even if it contains duplicate characters. 
+The permutations are returned in lexicographically sorted order.
 
 Algorithm Overview:
 
