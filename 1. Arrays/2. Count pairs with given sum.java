@@ -9,7 +9,8 @@
  * 1. HashMap Initialization: Create a HashMap to store the frequency of each element encountered.
  * 2. Iterate and Count Pairs: Loop through the array:
  *    - Calculate the complement needed for the current element to reach the target sum.
- *    - If the complement exists in the HashMap, increment the count by its frequency (all previous occurrences of the complement can form a valid pair).
+ *    - If the complement exists in the HashMap, increment the count by its frequency 
+ *      (all previous occurrences of the complement can form a valid pair).
  *    - Update the frequency of the current element in the HashMap.
  * 3. Return Count: Return the final count of pairs that sum to the target value.
  *
@@ -17,7 +18,7 @@
  * Space Complexity: O(n)
  */
 class Solution {
-  int getPairsCount(int[] arr, int sum) { // Updated method signature
+  int getPairsCount(int[] arr, int sum) { 
       // code here
       HashMap<Integer, Integer> hash = new HashMap<>(); // Create HashMap to store frequency of elements
       int count = 0; // Initialize count of pairs to 0
